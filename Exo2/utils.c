@@ -19,7 +19,7 @@ int parse_int(char * str_int){
         if (*(str_int+i) > '9' || *(str_int+i) < '0') continue;
         value += (*(str_int+n-i-1)-'0')*power_int(10, i);
     }
-    return value;    
+    return value;
 }
 
 float parse_float(char * str_float){
@@ -32,10 +32,3 @@ float parse_float(char * str_float){
 }
 
 
-int main(){
-    char v[]="210.1126638751";
-
-    float t = parse_float(v);
-    printf("%f", t);
-    return 0;
-}

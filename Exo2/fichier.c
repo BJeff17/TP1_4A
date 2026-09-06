@@ -1,4 +1,5 @@
 #include "fichier.h"
+#include "utils.c"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,8 +15,6 @@ char * read_file(char path[]){
         buff[MAX_BUFF_LEN-1] = 0;
         strncat(text, buff, MAX_BUFF_LEN*sizeof(char));
     }
-        
-    
     return text;
 
 }
@@ -41,10 +40,15 @@ char* donneeCapteurToString(DonneeCapteur *d){
 }
 DonneeCapteur stringToDonneeCapteur(char * str_d){
     char *temp;
+    int count = 0;
+    DonneeCapteur d = {0,0,0};
     do{
         temp = strtok(str_d,",");
-    }while(temp);
-    
+	if (count<2) *(*d+count*sizeof(float)) = parse(temp);
+	if (count ==2) *(*d+count*sizeof(float))=pare_int(temp);
+	count ++;
+    }while(count <=2);
+    return d
 }
 
 
