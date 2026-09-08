@@ -1,11 +1,9 @@
 #include "capteurs.h"
-#include <stdio.h>
-
 
 
 void afficher_donnee(DonneeCapteur *d){
     printf("Voici les donnees du capteur : ");
-    printf("\tTempérature : %f degree celcius\n\tdistance : %f m\n\tluminosité : %d %", d->temp, d->dist, d->lumn);
+    printf("\tTempérature : %f degree celcius\n\tdistance : %f m\n\tluminosité : %d / 100", d->temp, d->dist, d->lumn);
 }
 
 
@@ -32,3 +30,4 @@ DonneeCapteur acquerir_donnee(){
 
     
 }
+
